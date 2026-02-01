@@ -11,7 +11,7 @@
 
 **Hallazgos clave (3-7 bullets).**
 - Correo electrónico comprometido en brecha conocida (HIBP): permite reutilización de contraseñas en otros servicios.
-- Identidades digitales vinculadas a través de Google Services: canal de YouTube, perfil en Google+ (archivado), y reseñas en Google Maps.
+- Identidades digitales vinculadas a través de Google Services: canal de YouTube, perfil en Google, y reseñas en Google Maps.
 - Información de ubicación y empleadores anterior: geolocalización a San Fernando y empresas previas deducibles.
 - Perfil corporativo con posts históricos: exposición de actividades previas a través de Wayback Machine.
 
@@ -20,7 +20,7 @@
 
 **Recomendaciones prioritarias (3-5 bullets).**
 - Cambiar contraseña y habilitar autenticación de dos factores en todos los servicios Google (Gmail, YouTube, Maps).
-- Revisar y configurar privacidad de Google+ (archivado) y limitar datos públicos en Google Maps (ocultar domicilio/lugares frecuentes).
+- Revisar y configurar privacidad de Google y limitar datos públicos en Google Maps.
 - Monitorizar aparición en futuras brechas y revisar otros servicios con la misma dirección de correo.
 - Documentar historial en Wayback Machine para servicios propios y considerar solicitud de eliminación si es posible.
 
@@ -28,7 +28,7 @@
 
 **Alcance.** Solo OSINT pasivo sobre la entidad (y su huella pública asociada). No se incluye investigación individual (apartado b).
 
-**Fuentes permitidas (ejemplos).** Motores de búsqueda, hemeroteca, registros públicos, perfiles públicos en RRSS, repositorios públicos, documentos públicos, Wayback/archivos, bases de datos de brechas (consulta pasiva).
+**Fuentes permitidas (ejemplos).** Motores de búsqueda, hemeroteca, registros públicos, perfiles públicos en RRSS, repositorios públicos, documentos públicos, Wayback/archivos, bases de datos de brechas.
 
 **Regla crítica.** Prohibida cualquier acción activa: escaneos, enumeración directa de servicios, pruebas de login, interacción con formularios, generación de tráfico hacia los sistemas objetivo.
 
@@ -49,7 +49,6 @@ Esta sección describe el proceso seguido según el ciclo OSINT: planificación,
   - ¿Existen documentos públicos con metadatos reveladores?
   - ¿Hay menciones de tecnologías, proveedores, sedes, organigrama o personal?
   - ¿La entidad aparece asociada a brechas pasadas o leaks públicos?
-<!-- AYUDA (BORRAR): Ajustad estas preguntas a lo que realmente investigasteis. -->
 
 - Criterios de priorización:
   - Impacto potencial en ingeniería social.
@@ -71,14 +70,14 @@ Tabla de fuentes (añadir/quitar según aplique):
 | Brechas     | Have I Been Pwned (HIBP)            | apariciones en leaks        | consulta pasiva de BDD      |
 | RRSS        | YouTube (público)                   | canal, videos, actividad    | solo contenido público      |
 | RRSS        | Google Maps (público)               | reseñas, ubicaciones        | solo lectura de datos públicos |
-| Servicios   | Google Plus Archive (vía Wayback)   | perfil histórico, posts     | acceso a snapshots archivados |
+| Servicios   | Google (vía Wayback)   | perfil histórico, posts     | acceso a snapshots archivados |
 
 ### 3.3 Adquisición (recopilación)
 
 - Consultas realizadas (resumen):
   - Búsqueda del correo en Have I Been Pwned
   - Búsqueda de datos asociados al correo en Epieos
-  - Búsqueda de "jose luis godoy" en Google + links de servicios Google
+  - Búsqueda de links de servicios Google
   - Búsqueda del perfil en Google Plus Archive vía Wayback Machine
   - Búsqueda del canal de YouTube asociado al perfil
   - Búsqueda de reseñas y ubicación en Google Maps
@@ -124,25 +123,12 @@ Tabla de fuentes (añadir/quitar según aplique):
 |---------------|-------------------------------|--------------|--------------------------------|
 | Have I Been Pwned (HIBP) | Base de datos de brechas | Verificar compromiso de correo | `2026-02-01_hibp_consulta.png` |
 | Epieos | Búsqueda de datos de correo | Obtener información asociada a email | `2026-02-01_google_busqueda0.png` |
-| Google Search | Motor de búsqueda | Búsqueda de identidades vinculadas | `2026-02-01_google_busqueda1.png`, `2026-02-01_google_busqueda2.png` |
+| Google Search | Motor de búsqueda | Búsqueda de identidades vinculadas | `2026-02-01_google_busqueda1.png` |
 | Wayback Machine (Archive.org) | Archivo web | Acceso a Google Plus histórico | `2026-02-01_google_busqueda3.png` |
-| YouTube | Red social (RRSS) | Localización de canal personal | `2026-02-01_google_busqueda5.png` |
-| Google Maps | Servicio de localización | Consulta de reseñas y ubicaciones | `2026-02-01_google_busqueda6.png` |
+| YouTube | Red social (RRSS) | Localización de canal personal | `2026-02-01_google_busqueda4.png` |
+| Google Maps | Servicio de localización | Consulta de reseñas y ubicaciones | `2026-02-01_google_busqueda2.png`, `2026-02-01_google_busqueda5.png`, `2026-02-01_google_busqueda6.png` |
 
 ## 5. Resultados (hallazgos)
-
-Formato recomendado por hallazgo:
-
-| Campo           | Contenido                                                                  |
-|-----------------|----------------------------------------------------------------------------|
-| ID              | A-01                                                                       |
-| Categoría       | Contacto / Identidad / Dominio-DNS / Documentos-Metadatos / RRSS / Brechas |
-| Descripción     | [Qué se encontró, claro y verificable]                                     |
-| Evidencia       | [URL] + `evidencias/...`                                                   |
-| Fecha evidencia | [YYYY-MM-DD]                                                               |
-| Impacto         | [Qué permite a un atacante]                                                |
-| Riesgo          | Alto / Medio / Bajo                                                        |
-| Recomendación   | [Mitigación concreta]                                                      |
 
 ### 5.1 Identidades digitales (nicks, perfiles, cuentas)
 
@@ -153,7 +139,7 @@ Formato recomendado por hallazgo:
 | ID              | A-01                                                                       |
 | Categoría       | Identidad / RRSS                                                           |
 | Descripción     | Canal de YouTube personal activo con múltiples videos publicados           |
-| Evidencia       | `2026-02-01_google_busqueda5.png`                                          |
+| Evidencia       | `2026-02-01_google_busqueda4.png`,                                           |
 | Fecha evidencia | 2026-02-01                                                                 |
 | Impacto         | Vinculación de identidad real con actividad online; vector para ingeniería social y profiling |
 | Riesgo          | Medio                                                                       |
@@ -166,7 +152,7 @@ Formato recomendado por hallazgo:
 | ID              | A-02                                                                       |
 | Categoría       | Identidad / RRSS                                                           |
 | Descripción     | Perfil de Google+ con posts históricos accesibles vía Wayback Machine; posts coinciden con actividad YouTube |
-| Evidencia       | `2026-02-01_google_busqueda3.png` , `2026-02-01_google_busqueda4.png`       |
+| Evidencia       | `2026-02-01_google_busqueda0.png` , `2026-02-01_google_busqueda1.png`       |
 | Fecha evidencia | 2026-02-01                                                                 |
 | Impacto         | Exposición histórica de actividades; confirmación de identidad vinculada; datos persistentes en archivos web |
 | Riesgo          | Medio                                                                       |
@@ -174,27 +160,14 @@ Formato recomendado por hallazgo:
 
 ### 5.2 Datos de contacto (emails, teléfonos, estructuras)
 
-**A-03: Correo electrónico personal**
-
-| Campo           | Contenido                                                                  |
-|-----------------|----------------------------------------------------------------------------|
-| ID              | A-03                                                                       |
-| Categoría       | Contacto / Email                                                           |
-| Descripción     | Correo electrónico personal asociado a múltiples servicios Google (YouTube, Maps, etc.) |
-| Evidencia       | `2026-02-01_hibp_consulta.png` , `2026-02-01_google_busqueda0.png`          |
-| Fecha evidencia | 2026-02-01                                                                 |
-| Impacto         | Punto de pivote central para mapeo de identidad digital; comprometido en brecha anterior |
-| Riesgo          | Alto                                                                       |
-| Recomendación   | Cambiar contraseña inmediatamente; activar verificación en 2 pasos; monitorizar en futuras brechas |
-
-**A-04: Ubicación asociada (San Fernando)**
+**A-03: Ubicación asociada**
 
 | Campo           | Contenido                                                                  |
 |-----------------|----------------------------------------------------------------------------|
 | ID              | A-04                                                                       |
 | Categoría       | Contacto / Ubicación                                                       |
 | Descripción     | Ubicación deducida mediante reseñas de Google Maps en 2 restaurantes de San Fernando e interacción con tienda Orange |
-| Evidencia       | `2026-02-01_google_busqueda6.png`                                          |
+| Evidencia       | `2026-02-01_google_busqueda5.png`, `2026-02-01_google_busqueda6.png`                                          |
 | Fecha evidencia | 2026-02-01                                                                 |
 | Impacto         | Geolocalización; permite deducir ubicación habitual e historial de movimientos; facilita ingeniería social |
 | Riesgo          | Medio                                                                       |
@@ -206,14 +179,14 @@ Formato recomendado por hallazgo:
 
 ### 5.4 Huella documental y metadatos (documentos públicos)
 
-**A-05: Posts históricos en Google+**
+**A-04: Posts históricos en Google+**
 
 | Campo           | Contenido                                                                  |
 |-----------------|----------------------------------------------------------------------------|
 | ID              | A-05                                                                       |
 | Categoría       | Documentos / Huella histórica                                              |
 | Descripción     | Posts históricos de Google+ accesibles via Wayback Machine; demuestran actividad y contenido anterior |
-| Evidencia       | `2026-02-01_google_busqueda3.png` , `2026-02-01_google_busqueda4.png`       |
+| Evidencia       | `2026-02-01_google_busqueda3.png`       |
 | Fecha evidencia | 2026-02-01                                                                 |
 | Impacto         | Exposición de historial personal; persistencia de datos en archivos web públicos |
 | Riesgo          | Bajo-Medio                                                                 |
@@ -232,7 +205,7 @@ Formato recomendado por hallazgo:
 | Fecha evidencia | 2026-02-01                                                                 |
 | Impacto         | Alto: facilita reutilización de contraseña; permite deducción de patrón de credenciales; acceso a cuentas vinculadas |
 | Riesgo          | Alto                                                                       |
-| Recomendación   | 1) Cambiar contraseña urgentemente; 2) Activar 2FA en Gmail y servicios críticos; 3) Revisar acceso a cuentas reciente; 4) Monitorizar futuras brechas |
+| Recomendación   | Cambiar contraseña urgentemente; Activar 2FA en Gmail y servicios críticos; Revisar acceso a cuentas reciente; Monitorizar futuras brechas |
 
 ## 6. Resumen de riesgos
 
@@ -247,7 +220,7 @@ Formato recomendado por hallazgo:
 
 ## 7. Conclusiones
 
-- **Convergencia de identidades en ecosistema Google**: La exposición principal radica en la interconexión de múltiples servicios Google (Gmail, YouTube, Maps, Google+) bajo una única identidad. Un atacante aprovecha un único punto de compromiso (correo + brecha HIBP) para acceder a toda la huella digital.
+- **Convergencia de identidades en ecosistema Google**: La exposición principal radica en la interconexión de múltiples servicios Google (Gmail, YouTube, Maps, Google) bajo una única identidad. Un atacante aprovecha un único punto de compromiso (correo + brecha HIBP) para acceder a toda la huella digital.
 
 - **Persistencia de datos en Wayback Machine**: Aunque Google+ fue desmantelado, sus datos persisten en Archive.org, permitiendo acceso indefinido al historial de actividades. Esto amplifica el riesgo de profiling y manipulación social.
 
@@ -257,17 +230,16 @@ Formato recomendado por hallazgo:
 
 ## 8. Recomendaciones
 
-**Quick wins (0-30 días)**
+**Urgente**
 - Cambiar contraseña de Gmail e inmediatamente habilitar Verificación en 2 pasos (2FA).
 - Revisar configuración de privacidad en YouTube: cambiar visibilidad de canal a privado si no es comercial; ocultar lista de reproducción.
 - Limpiar Google Maps: eliminar o privatizar reseñas antiguas; desactivar historial de ubicación; revisar ubicación del hogar.
 - Verificar sesiones activas en Google Account y terminar sesiones desconocidas.
 - Cambiar contraseña en otros servicios si reutilizaban patrón similar.
 
-**Medio plazo (1-3 meses)**
-- Solicitar derecho al olvido a Archive.org para snapshots de Google+ (GDPR Art. 17 si aplica).
+**Medio plazo**
 - Implementar gestor de contraseñas y usar contraseñas únicas por servicio.
-- Revisar y limitar información personal en todas las RRSS (LinkedIn, Facebook, etc.).
+- Revisar y limitar información personal en todas las RRSS.
 - Configurar alertas de brechas: suscribirse a Have I Been Pwned para monitorización.
 - Auditoría completa de aplicaciones de terceros conectadas a Google Account.
 
@@ -292,16 +264,14 @@ Formato recomendado por hallazgo:
 
 ### 9.2 Consultas (dorks) empleadas
 
-(Consultas realizadas en OSINT pasivo. Todas sobre datos ya públicos sin interacción activa con sistemas.)\n\n- `[correo electrónico]` en Have I Been Pwned\n- `[correo electrónico]` en Epieos\n- `\"Jose Luis Godoy\" Google+`\n- `\"Jose Luis Godoy\" YouTube`\n- `\"Jose Luis Godoy\" San Fernando`\n- `site:web.archive.org google.com/+[profile]`\n- `site:maps.google.com [correo] reviews`
+(Consultas realizadas en OSINT pasivo. Todas sobre datos ya públicos sin interacción activa con sistemas.)\n\n- `aldimeneira91@gmail.com` en Have I Been Pwned\n- `aldimeneira91@gmail.com` en Epieos\n- `\"Jose Luis Godoy\" Google+`\n- `\"Aldimeneira\" YouTube`\n- `\"Aldimeneira\"`
 
 ### 9.3 Evidencias (índice)
 
 - `evidencias/`:
   - [`2026-02-01_hibp_consulta.png`](../evidencias/2026-02-01_hibp_consulta.png) - Captura de Have I Been Pwned mostrando correo comprometido en brecha
   - [`2026-02-01_google_busqueda0.png`](../evidencias/2026-02-01_google_busqueda0.png) - Búsqueda inicial y datos de correo en Epieos
-  - [`2026-02-01_google_busqueda1.png`](../evidencias/2026-02-01_google_busqueda1.png) - Información asociada y links de servicios Google
-  - [`2026-02-01_google_busqueda2.png`](../evidencias/2026-02-01_google_busqueda2.png) - Links adicionales y servicios Google vinculados
-  - [`2026-02-01_google_busqueda3.png`](../evidencias/2026-02-01_google_busqueda3.png) - Snapshots del Wayback Machine de Google+ histórico
-  - [`2026-02-01_google_busqueda4.png`](../evidencias/2026-02-01_google_busqueda4.png) - Perfil Google+ archivado con posts coincidentes con YouTube
-  - [`2026-02-01_google_busqueda5.png`](../evidencias/2026-02-01_google_busqueda5.png) - Canal de YouTube personal encontrado
-  - [`2026-02-01_google_busqueda6.png`](../evidencias/2026-02-01_google_busqueda6.png) - Google Maps con 4 reseñas: Orange y restaurantes San Fernando
+  - [`2026-02-01_google_busqueda2.png`](../evidencias/2026-02-01_google_busqueda1.png) - Links adicionales y servicios Google vinculados
+  - [`2026-02-01_google_busqueda4.png`](../evidencias/2026-02-01_google_busqueda3.png) - Perfil Google+ archivado con posts coincidentes con YouTube
+  - [`2026-02-01_google_busqueda5.png`](../evidencias/2026-02-01_google_busqueda4.png) - Canal de YouTube personal encontrado
+  - [`2026-02-01_google_busqueda6.png`](../evidencias/2026-02-01_google_busqueda2.png)(../evidencias/2026-02-01_google_busqueda5.png)(../evidencias/2026-02-01_google_busqueda6.png) - Google Maps con 4 reseñas: Orange y restaurantes San Fernando
