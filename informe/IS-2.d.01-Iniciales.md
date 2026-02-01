@@ -1,63 +1,47 @@
-# IS 2.d.02 (a) - Auditoría de Superficie de Exposición Post-Incidente (OSINT pasivo)
-<!-- AYUDA (BORRAR): Plantilla del informe. Rellenad los campos entre corchetes y eliminad todos los bloques "AYUDA (BORRAR)" antes de entregar. -->
+# INDIVIDUAL: Auditoría de Identidad Digital y Huella en Internet (Ethical Profiling)
 
-- Entidad objetivo: Clínica de San Rafael de Cádiz
-<!-- AYUDA (BORRAR): Nombre exacto del objetivo (como aparece en fuentes públicas). -->
-- Equipo/Grupo: [Nombre del grupo]
-<!-- AYUDA (BORRAR): Identificador del grupo/equipo. -->
-- Integrantes: [Nombre Apellido (Iniciales)], [..]
-<!-- AYUDA (BORRAR): Lista de integrantes (mismo orden que en la presentación). -->
-- Fecha(s) de investigación: [YYYY-MM-DD a YYYY-MM-DD]
-<!-- AYUDA (BORRAR): Rango de fechas reales en las que hicisteis las consultas OSINT. -->
-- Versión: 1.0
-<!-- AYUDA (BORRAR): Subid versión si hay revisiones (1.1, 1.2...). -->
-- Límite de entrega (a): máximo 6 folios (12 caras) en PDF (si aplica)
-<!-- AYUDA (BORRAR): Recordatorio del límite; podéis quitarlo si no os lo piden. -->
+
+- Objetivo: José Luis Godoy Khattaoui
+- Integrante: Javier Calvillo Acebedo
+- Fecha(s) de investigación: [2026-01-31 a 2026-02-01]
 
 ## 1. Resumen ejecutivo
-<!-- AYUDA (BORRAR): 8-15 líneas. Debe entenderse sin leer el resto: qué se investigó, hallazgos top y acciones prioritarias. -->
 
 **Objetivo.** Determinar qué información pública existía (antes del incidente supuesto) que podría haber facilitado la fase de reconocimiento de un atacante: identidades digitales, contactos, dominios/subdominios, huella documental (metadatos), menciones públicas y exposiciones derivadas.
 
 **Hallazgos clave (3-7 bullets).**
-<!-- AYUDA (BORRAR): Elegid solo lo más relevante (lo que facilita ingeniería social/reconocimiento). -->
-- [Hallazgo 1 + por qué importa]
-- [Hallazgo 2 + por qué importa]
-- [Hallazgo 3 + por qué importa]
+- Correo electrónico comprometido en brecha conocida (HIBP): permite reutilización de contraseñas en otros servicios.
+- Identidades digitales vinculadas a través de Google Services: canal de YouTube, perfil en Google+ (archivado), y reseñas en Google Maps.
+- Información de ubicación y empleadores anterior: geolocalización a San Fernando y empresas previas deducibles.
+- Perfil corporativo con posts históricos: exposición de actividades previas a través de Wayback Machine.
 
 **Riesgo global (una frase).**
-<!-- AYUDA (BORRAR): Un diagnóstico breve: nivel + causa principal. -->
-- [Bajo/Medio/Alto] por [motivo principal].
+- Alto por convergencia de datos personales en servicios Google interconectados e historial accesible vía Wayback Machine; brecha anterior facilita suplantación.
 
 **Recomendaciones prioritarias (3-5 bullets).**
-<!-- AYUDA (BORRAR): Acciones concretas, medibles y alineadas con los hallazgos. -->
-- [Acción 1]
-- [Acción 2]
-- [Acción 3]
+- Cambiar contraseña y habilitar autenticación de dos factores en todos los servicios Google (Gmail, YouTube, Maps).
+- Revisar y configurar privacidad de Google+ (archivado) y limitar datos públicos en Google Maps (ocultar domicilio/lugares frecuentes).
+- Monitorizar aparición en futuras brechas y revisar otros servicios con la misma dirección de correo.
+- Documentar historial en Wayback Machine para servicios propios y considerar solicitud de eliminación si es posible.
 
 ## 2. Alcance, supuestos y reglas de compromiso
-<!-- AYUDA (BORRAR): Dejad claro QUÉ se ha hecho y QUÉ no (para demostrar OSINT pasivo). Indicad supuestos y límites. -->
 
 **Alcance.** Solo OSINT pasivo sobre la entidad (y su huella pública asociada). No se incluye investigación individual (apartado b).
 
 **Fuentes permitidas (ejemplos).** Motores de búsqueda, hemeroteca, registros públicos, perfiles públicos en RRSS, repositorios públicos, documentos públicos, Wayback/archivos, bases de datos de brechas (consulta pasiva).
-<!-- AYUDA (BORRAR): Listad las fuentes reales que usasteis (5-10), no un listado infinito. -->
 
 **Regla crítica.** Prohibida cualquier acción activa: escaneos, enumeración directa de servicios, pruebas de login, interacción con formularios, generación de tráfico hacia los sistemas objetivo.
-<!-- AYUDA (BORRAR): Si una herramienta pudiera considerarse “activa”, explicad cómo la usasteis de forma pasiva (solo consultas a datos ya recopilados por terceros). -->
+
 
 **Minimización y privacidad.**
-<!-- AYUDA (BORRAR): Explicad cómo reducís datos personales (enmascarado parcial, iniciales, no incluir PII innecesaria). -->
 - Evitar incluir datos personales innecesarios.
 - Si aparecen datos personales de terceros (p. ej., correos de empleados), aplicar reducción: mostrar solo lo imprescindible o enmascarar parcialmente cuando no aporte valor al riesgo.
 
 ## 3. Metodología (ciclo OSINT)
-<!-- AYUDA (BORRAR): Explicad el proceso seguido de forma reproducible (ciclo OSINT) y cómo volvisteis a fases anteriores si fue necesario. -->
 
 Esta sección describe el proceso seguido según el ciclo OSINT: planificación, fuentes, adquisición, procesamiento, análisis y difusión.
 
 ### 3.1 Planificación y dirección
-<!-- AYUDA (BORRAR): Objetivos, preguntas guía y criterios de priorización. Esto demuestra teoría + método. -->
 
 - Preguntas guía (ejemplos):
   - ¿Qué dominios y marcas usa la entidad?
@@ -71,45 +55,40 @@ Esta sección describe el proceso seguido según el ciclo OSINT: planificación,
   - Impacto potencial en ingeniería social.
   - Reutilización de credenciales/patrones.
   - Exposición de infraestructura por huella documental/histórica.
-<!-- AYUDA (BORRAR): Indicad 2-4 criterios máximo y cómo los aplicasteis. -->
 
 - Ventana temporal:
-  - Consulta realizada en: [YYYY-MM-DD]
+  - Consulta realizada en: 2026-02-01
   - Evidencias archivadas en: `evidencias/` (todas deben quedar enlazadas en el informe).
-<!-- AYUDA (BORRAR): Si usasteis Wayback, indicad el rango de años consultado. -->
 
 ### 3.2 Identificación de fuentes
-<!-- AYUDA (BORRAR): Fuentes por categoría. Mejor pocas y justificadas. Indicad cómo se mantiene el enfoque pasivo. -->
 
 Tabla de fuentes (añadir/quitar según aplique):
-<!-- AYUDA (BORRAR): En “Notas (pasivo)” indicad qué aporta la fuente y por qué no implica interacción con los sistemas objetivo. -->
 
 | Categoría   | Fuente/Herramienta                  | Qué se busca                | Notas (pasivo)              |
 |-------------|-------------------------------------|-----------------------------|-----------------------------|
-| Buscadores  | Google / Bing / DuckDuckGo          | menciones, PDFs, indexación | dorks sin acceder a paneles |
-| Archivo web | Wayback Machine                     | versiones antiguas          | solo lectura                |
-| Dominios    | WHOIS/RDAP (consulta)               | datos de registro           | solo consulta pública       |
-| DNS pasivo  | dnsdumpster, securitytrails, etc.   | subdominios/histórico       | sin enumeración activa      |
-| Brechas     | HIBP / DeHashed (si se usa)         | apariciones en brechas      | no intentar logins          |
-| RRSS        | LinkedIn/X/Facebook (público)       | perfiles, roles, nicks      | solo contenido público      |
-| Metadatos   | exiftool/FOCA (sobre docs públicos) | autores, rutas, software    | sobre ficheros públicos     |
+| Buscadores  | Google Search / Epieos              | correo, identidad digital   | solo lectura en resultados  |
+| Archivo web | Wayback Machine (Archive.org)       | versiones antiguas perfiles | solo lectura                |
+| Brechas     | Have I Been Pwned (HIBP)            | apariciones en leaks        | consulta pasiva de BDD      |
+| RRSS        | YouTube (público)                   | canal, videos, actividad    | solo contenido público      |
+| RRSS        | Google Maps (público)               | reseñas, ubicaciones        | solo lectura de datos públicos |
+| Servicios   | Google Plus Archive (vía Wayback)   | perfil histórico, posts     | acceso a snapshots archivados |
 
 ### 3.3 Adquisición (recopilación)
-<!-- AYUDA (BORRAR): Consultas representativas (no todas). Añadid palabras clave, variantes del nombre, ubicaciones, etc. -->
 
 - Consultas realizadas (resumen):
-  - [Query/dork 1]
-  - [Query/dork 2]
-  - [Query/dork 3]
+  - Búsqueda del correo en Have I Been Pwned
+  - Búsqueda de datos asociados al correo en Epieos
+  - Búsqueda de "jose luis godoy" en Google + links de servicios Google
+  - Búsqueda del perfil en Google Plus Archive vía Wayback Machine
+  - Búsqueda del canal de YouTube asociado al perfil
+  - Búsqueda de reseñas y ubicación en Google Maps
 
 - Evidencias:
   - Guardar capturas o PDFs en `evidencias/` con nombres: `YYYY-MM-DD_fuente_tema.ext`
   - Registrar URL (y, cuando sea útil, captura) y fecha de acceso en cada hallazgo.
   - Toda evidencia mencionada en el informe debe estar enlazada (URL y/o ruta relativa a `evidencias/`).
-<!-- AYUDA (BORRAR): Si una URL cambia o desaparece, la captura/PDF en `evidencias/` es la prueba de trazabilidad. -->
 
 ### 3.4 Procesamiento y organización
-<!-- AYUDA (BORRAR): Cómo ordenasteis datos: deduplicación, clasificación por categorías y relevancia, y control de calidad. -->
 
 - Normalización:
   - Deduplicación de correos/teléfonos/dominios.
@@ -119,41 +98,40 @@ Tabla de fuentes (añadir/quitar según aplique):
   - Fiabilidad de la fuente (primaria vs. terciaria).
   - Fecha y vigencia (actual vs. histórico).
   - Corroboración cruzada (>= 2 fuentes cuando sea posible).
-<!-- AYUDA (BORRAR): Indicad qué hallazgos NO pudisteis corroborar y por qué. -->
 
 ### 3.5 Análisis e interpretación
-<!-- AYUDA (BORRAR): Transformad datos en “inteligencia”: vectores habilitados, probabilidad/impacto, y mitigación recomendada. -->
+
 
 - Correlaciones (ejemplos):
   - Patrones de email + nombres de empleados + roles (posible spear phishing).
   - Documentos públicos -> metadatos -> nombres de usuario/software.
   - Dominios/subdominios históricos -> superficies olvidadas.
-<!-- AYUDA (BORRAR): Añadid 2-5 correlaciones reales. Mejor pocas y buenas. -->
 
 - Valoración de riesgo: usar una escala simple.
   - Alto: facilita acceso/engaño de alta probabilidad o alto impacto.
   - Medio: aporta información útil, pero requiere pasos adicionales.
   - Bajo: información marginal o muy genérica.
-<!-- AYUDA (BORRAR): Justificad el riesgo con una frase (“Alto porque permite suplantación del canal X”, etc.). -->
+
 
 ### 3.6 Difusión
-<!-- AYUDA (BORRAR): Explicad a quién va dirigido el informe y cómo se usará (priorizar mitigaciones y concienciación). -->
 
 - Este informe resume hallazgos, evidencia y recomendaciones accionables.
 - Presentación clara para audiencias técnicas y no técnicas.
 
 ## 4. Herramientas utilizadas
-<!-- AYUDA (BORRAR): Incluid solo herramientas realmente usadas y una evidencia por cada una (URL o fichero en `evidencias/`). -->
 
 | Herramienta   | Tipo                          | Uso concreto | Salida/evidencia               |
 |---------------|-------------------------------|--------------|--------------------------------|
-| [Herramienta] | [Buscador/DNS/Metadatos/etc.] | [Para qué]   | [archivo en evidencias/ o URL] |
+| Have I Been Pwned (HIBP) | Base de datos de brechas | Verificar compromiso de correo | `2026-02-01_hibp_consulta.png` |
+| Epieos | Búsqueda de datos de correo | Obtener información asociada a email | `2026-02-01_google_busqueda0.png` |
+| Google Search | Motor de búsqueda | Búsqueda de identidades vinculadas | `2026-02-01_google_busqueda1.png`, `2026-02-01_google_busqueda2.png` |
+| Wayback Machine (Archive.org) | Archivo web | Acceso a Google Plus histórico | `2026-02-01_google_busqueda3.png` |
+| YouTube | Red social (RRSS) | Localización de canal personal | `2026-02-01_google_busqueda5.png` |
+| Google Maps | Servicio de localización | Consulta de reseñas y ubicaciones | `2026-02-01_google_busqueda6.png` |
 
 ## 5. Resultados (hallazgos)
-<!-- AYUDA (BORRAR): Parte principal. Cada hallazgo debe ser verificable y tener evidencia enlazada (URL y/o `evidencias/...`). -->
 
 Formato recomendado por hallazgo:
-<!-- AYUDA (BORRAR): Copiad esta tabla por cada hallazgo importante (o adaptadla si preferís una tabla global). -->
 
 | Campo           | Contenido                                                                  |
 |-----------------|----------------------------------------------------------------------------|
@@ -167,89 +145,163 @@ Formato recomendado por hallazgo:
 | Recomendación   | [Mitigación concreta]                                                      |
 
 ### 5.1 Identidades digitales (nicks, perfiles, cuentas)
-<!-- AYUDA (BORRAR): Perfiles corporativos, posibles empleados/roles (solo info pública), y “pivots” para ingeniería social. -->
 
-- A-01
-- A-02
+**A-01: Canal de YouTube**
+
+| Campo           | Contenido                                                                  |
+|-----------------|----------------------------------------------------------------------------|
+| ID              | A-01                                                                       |
+| Categoría       | Identidad / RRSS                                                           |
+| Descripción     | Canal de YouTube personal activo con múltiples videos publicados           |
+| Evidencia       | `2026-02-01_google_busqueda5.png`                                          |
+| Fecha evidencia | 2026-02-01                                                                 |
+| Impacto         | Vinculación de identidad real con actividad online; vector para ingeniería social y profiling |
+| Riesgo          | Medio                                                                       |
+| Recomendación   | Revisar configuración de privacidad del canal; considerar cambiar URL de canal si es identificable |
+
+**A-02: Perfil Google+ (archivado)**
+
+| Campo           | Contenido                                                                  |
+|-----------------|----------------------------------------------------------------------------|
+| ID              | A-02                                                                       |
+| Categoría       | Identidad / RRSS                                                           |
+| Descripción     | Perfil de Google+ con posts históricos accesibles vía Wayback Machine; posts coinciden con actividad YouTube |
+| Evidencia       | `2026-02-01_google_busqueda3.png` , `2026-02-01_google_busqueda4.png`       |
+| Fecha evidencia | 2026-02-01                                                                 |
+| Impacto         | Exposición histórica de actividades; confirmación de identidad vinculada; datos persistentes en archivos web |
+| Riesgo          | Medio                                                                       |
+| Recomendación   | Solicitar eliminación de datos a Archive.org si es posible; revisar policy de datos históricos |
 
 ### 5.2 Datos de contacto (emails, teléfonos, estructuras)
-<!-- AYUDA (BORRAR): Patrones de correo (si se infieren), teléfonos publicados, extensiones, formularios de contacto y riesgos asociados. -->
 
-- A-03
-- A-04
+**A-03: Correo electrónico personal**
+
+| Campo           | Contenido                                                                  |
+|-----------------|----------------------------------------------------------------------------|
+| ID              | A-03                                                                       |
+| Categoría       | Contacto / Email                                                           |
+| Descripción     | Correo electrónico personal asociado a múltiples servicios Google (YouTube, Maps, etc.) |
+| Evidencia       | `2026-02-01_hibp_consulta.png` , `2026-02-01_google_busqueda0.png`          |
+| Fecha evidencia | 2026-02-01                                                                 |
+| Impacto         | Punto de pivote central para mapeo de identidad digital; comprometido en brecha anterior |
+| Riesgo          | Alto                                                                       |
+| Recomendación   | Cambiar contraseña inmediatamente; activar verificación en 2 pasos; monitorizar en futuras brechas |
+
+**A-04: Ubicación asociada (San Fernando)**
+
+| Campo           | Contenido                                                                  |
+|-----------------|----------------------------------------------------------------------------|
+| ID              | A-04                                                                       |
+| Categoría       | Contacto / Ubicación                                                       |
+| Descripción     | Ubicación deducida mediante reseñas de Google Maps en 2 restaurantes de San Fernando e interacción con tienda Orange |
+| Evidencia       | `2026-02-01_google_busqueda6.png`                                          |
+| Fecha evidencia | 2026-02-01                                                                 |
+| Impacto         | Geolocalización; permite deducir ubicación habitual e historial de movimientos; facilita ingeniería social |
+| Riesgo          | Medio                                                                       |
+| Recomendación   | Limitar datos de ubicación en Google Maps; no publicar lugares de trabajo/frecuentes; revisar reseñas antiguas |
 
 ### 5.3 Dominios, subdominios y huella DNS (pasivo)
-<!-- AYUDA (BORRAR): Dominios oficiales/variantes y subdominios observados en fuentes pasivas/históricas. Evitad enumeración activa. -->
 
-- A-05
-- A-06
+(No aplicable en este caso: la investigación se centró en identidades en servicios Google, no en propiedades de dominio personal.)
 
 ### 5.4 Huella documental y metadatos (documentos públicos)
-<!-- AYUDA (BORRAR): Documentos públicos y metadatos relevantes (autor, software, rutas, fechas). Adjuntad evidencia. -->
 
-- A-07
-- A-08
+**A-05: Posts históricos en Google+**
+
+| Campo           | Contenido                                                                  |
+|-----------------|----------------------------------------------------------------------------|
+| ID              | A-05                                                                       |
+| Categoría       | Documentos / Huella histórica                                              |
+| Descripción     | Posts históricos de Google+ accesibles via Wayback Machine; demuestran actividad y contenido anterior |
+| Evidencia       | `2026-02-01_google_busqueda3.png` , `2026-02-01_google_busqueda4.png`       |
+| Fecha evidencia | 2026-02-01                                                                 |
+| Impacto         | Exposición de historial personal; persistencia de datos en archivos web públicos |
+| Riesgo          | Bajo-Medio                                                                 |
+| Recomendación   | Verificar contenido accesible; solicitar derecho al olvido a Archive.org si procede |
 
 ### 5.5 Brechas y filtraciones (consulta pasiva)
-<!-- AYUDA (BORRAR): Aparición del dominio/correos en brechas conocidas. No incluyáis contraseñas. Priorizad mitigaciones (2FA, rotación, etc.). -->
 
-- A-09
+**A-06: Correo comprometido en brecha HIBP**
+
+| Campo           | Contenido                                                                  |
+|-----------------|----------------------------------------------------------------------------|
+| ID              | A-06                                                                       |
+| Categoría       | Brechas / Filtraciones                                                     |
+| Descripción     | Correo electrónico personal registrado en Have I Been Pwned; comprometido en brecha anterior |
+| Evidencia       | `2026-02-01_hibp_consulta.png` (evidencia en HIBP; base de datos pública)   |
+| Fecha evidencia | 2026-02-01                                                                 |
+| Impacto         | Alto: facilita reutilización de contraseña; permite deducción de patrón de credenciales; acceso a cuentas vinculadas |
+| Riesgo          | Alto                                                                       |
+| Recomendación   | 1) Cambiar contraseña urgentemente; 2) Activar 2FA en Gmail y servicios críticos; 3) Revisar acceso a cuentas reciente; 4) Monitorizar futuras brechas |
 
 ## 6. Resumen de riesgos
-<!-- AYUDA (BORRAR): Tabla para priorizar: qué arreglar primero (P1), después (P2) y al final (P3). -->
 
 | ID   | Hallazgo (resumen) | Riesgo | Prioridad | Acción recomendada |
 |------|--------------------|--------|-----------|--------------------|
-| A-01 | [..]               | Alto   | P1        | [..]               |
-| A-02 | [..]               | Medio  | P2        | [..]               |
-| A-03 | [..]               | Bajo   | P3        | [..]               |
+| A-03 | Correo comprometido en brecha | Alto | P1 | Cambiar contraseña + 2FA inmediato |
+| A-06 | Datos de brecha HIBP | Alto | P1 | Monitorizar y auditar acceso |
+| A-04 | Geolocalización deducida | Medio | P2 | Limitar datos de ubicación en Maps |
+| A-01 | Canal YouTube identificable | Medio | P2 | Revisar privacidad y configuración |
+| A-02 | Perfil Google+ histórico | Medio | P2 | Solicitar eliminación a Archive.org |
+| A-05 | Posts históricos accesibles | Bajo | P3 | Revisar contenido y privacidad |
 
 ## 7. Conclusiones
-<!-- AYUDA (BORRAR): 3-6 bullets: qué superficie pública existía y qué vector pudo facilitar. Sin repetir texto, aportad síntesis. -->
 
-- [Conclusión 1: qué explica la exposición encontrada y por qué importa]
-- [Conclusión 2]
-- [Conclusión 3]
+- **Convergencia de identidades en ecosistema Google**: La exposición principal radica en la interconexión de múltiples servicios Google (Gmail, YouTube, Maps, Google+) bajo una única identidad. Un atacante aprovecha un único punto de compromiso (correo + brecha HIBP) para acceder a toda la huella digital.
+
+- **Persistencia de datos en Wayback Machine**: Aunque Google+ fue desmantelado, sus datos persisten en Archive.org, permitiendo acceso indefinido al historial de actividades. Esto amplifica el riesgo de profiling y manipulación social.
+
+- **Información de ubicación y patrones de vida**: Las reseñas de Google Maps, aunque parecen secundarias, revelan ubicación habitual, lugares frecuentados e historial laboral. Esto facilita ataques de ingeniería social hiperpersonalizados o acoso.
+
+- **Eficacia del OSINT pasivo**: La investigación demuestra que con solo un correo electrónico y herramientas OSINT pasivas públicas, un atacante puede construir un perfil muy completo sin interacción activa con sistemas objetivo.
 
 ## 8. Recomendaciones
-<!-- AYUDA (BORRAR): Convertid hallazgos en acciones concretas. Si podéis, asignad responsable sugerido (IT/Seguridad/RRHH/Comunicacion). -->
 
 **Quick wins (0-30 días)**
-<!-- AYUDA (BORRAR): Cambios rápidos: retirar/editar documentos, sanear metadatos, ajustar contenidos públicos, concienciación inmediata. -->
-- [..]
-- [..]
+- Cambiar contraseña de Gmail e inmediatamente habilitar Verificación en 2 pasos (2FA).
+- Revisar configuración de privacidad en YouTube: cambiar visibilidad de canal a privado si no es comercial; ocultar lista de reproducción.
+- Limpiar Google Maps: eliminar o privatizar reseñas antiguas; desactivar historial de ubicación; revisar ubicación del hogar.
+- Verificar sesiones activas en Google Account y terminar sesiones desconocidas.
+- Cambiar contraseña en otros servicios si reutilizaban patrón similar.
 
 **Medio plazo (1-3 meses)**
-<!-- AYUDA (BORRAR): Cambios estructurales: políticas de publicación, revisión periódica, procesos, formación, controles de identidad. -->
-- [..]
+- Solicitar derecho al olvido a Archive.org para snapshots de Google+ (GDPR Art. 17 si aplica).
+- Implementar gestor de contraseñas y usar contraseñas únicas por servicio.
+- Revisar y limitar información personal en todas las RRSS (LinkedIn, Facebook, etc.).
+- Configurar alertas de brechas: suscribirse a Have I Been Pwned para monitorización.
+- Auditoría completa de aplicaciones de terceros conectadas a Google Account.
 
 **Mejora continua**
-<!-- AYUDA (BORRAR): Medidas recurrentes: monitorización de menciones, revisiones trimestrales de exposición, playbook OSINT. -->
-- [..]
+- Revisar mensualmente configuración de privacidad en servicios Google.
+- Realizar OSINT trimestral sobre sí mismo para identificar nueva información pública.
+- Implementar política de no publicación de ubicación, empresas anteriores ni patrones de vida en RRSS.
+- Educar sobre riesgos de ingeniería social: datos públicos facilitan suplantación y spear phishing.
 
 ## 9. Anexos
-<!-- AYUDA (BORRAR): Trazabilidad. Esta sección facilita la corrección: fuentes, consultas y evidencias enlazadas. -->
 
 ### 9.1 Registro de fuentes
-<!-- AYUDA (BORRAR): Fuentes base consultadas (URL + fecha). No hace falta duplicar cada evidencia si ya está en hallazgos, pero sí lo principal. -->
 
 | Fuente   | URL  | Fecha acceso | Nota |
 |----------|------|--------------|------|
-| [Fuente] | [..] | [YYYY-MM-DD] | [..] |
+| Have I Been Pwned | https://haveibeenpwned.com | 2026-02-01 | Consulta de brecha del correo |
+| Epieos | https://epieos.com | 2026-02-01 | Búsqueda de datos asociados al email |
+| Google Search | https://www.google.com | 2026-02-01 | Búsquedas múltiples de identidades vinculadas |
+| Wayback Machine | https://web.archive.org | 2026-02-01 | Acceso a snapshots de Google+ |
+| YouTube | https://www.youtube.com | 2026-02-01 | Búsqueda de canal personal |
+| Google Maps | https://maps.google.com | 2026-02-01 | Búsqueda de reseñas y ubicaciones |
 
 ### 9.2 Consultas (dorks) empleadas
-<!-- AYUDA (BORRAR): Dejad 5-15 consultas representativas. Deben ser pasivas y reproducibles. -->
 
-(Registrar aquí las consultas utilizadas. Evitar incluir acciones activas o instrucciones de acceso.)
-
-- `site:[dominio] filetype:pdf [palabra clave]`
-- `site:[dominio] "@[dominio]"`
-- `"Clínica San Rafael" "Cádiz" [palabra clave]`
+(Consultas realizadas en OSINT pasivo. Todas sobre datos ya públicos sin interacción activa con sistemas.)\n\n- `[correo electrónico]` en Have I Been Pwned\n- `[correo electrónico]` en Epieos\n- `\"Jose Luis Godoy\" Google+`\n- `\"Jose Luis Godoy\" YouTube`\n- `\"Jose Luis Godoy\" San Fernando`\n- `site:web.archive.org google.com/+[profile]`\n- `site:maps.google.com [correo] reviews`
 
 ### 9.3 Evidencias (índice)
-<!-- AYUDA (BORRAR): Índice con enlaces relativos a ficheros dentro de `evidencias/`. Debe permitir abrir cada evidencia sin buscar. -->
-
-<!-- AYUDA (BORRAR): Ejemplo de enlace: `[2026-01-27 - Google - PDF organigrama](../evidencias/2026-01-27_google_organigrama.pdf)` -->
 
 - `evidencias/`:
-  - `YYYY-MM-DD_fuente_tema.ext` - [descripción]
+  - [`2026-02-01_hibp_consulta.png`](../evidencias/2026-02-01_hibp_consulta.png) - Captura de Have I Been Pwned mostrando correo comprometido en brecha
+  - [`2026-02-01_google_busqueda0.png`](../evidencias/2026-02-01_google_busqueda0.png) - Búsqueda inicial y datos de correo en Epieos
+  - [`2026-02-01_google_busqueda1.png`](../evidencias/2026-02-01_google_busqueda1.png) - Información asociada y links de servicios Google
+  - [`2026-02-01_google_busqueda2.png`](../evidencias/2026-02-01_google_busqueda2.png) - Links adicionales y servicios Google vinculados
+  - [`2026-02-01_google_busqueda3.png`](../evidencias/2026-02-01_google_busqueda3.png) - Snapshots del Wayback Machine de Google+ histórico
+  - [`2026-02-01_google_busqueda4.png`](../evidencias/2026-02-01_google_busqueda4.png) - Perfil Google+ archivado con posts coincidentes con YouTube
+  - [`2026-02-01_google_busqueda5.png`](../evidencias/2026-02-01_google_busqueda5.png) - Canal de YouTube personal encontrado
+  - [`2026-02-01_google_busqueda6.png`](../evidencias/2026-02-01_google_busqueda6.png) - Google Maps con 4 reseñas: Orange y restaurantes San Fernando
